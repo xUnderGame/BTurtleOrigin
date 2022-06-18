@@ -1,0 +1,10 @@
+{
+  "type": "origins:modify_swim_speed",
+  "modifier": {
+	"name": "You move faster while in water",
+    "value": 1.2,
+    "operation": "multiply_base"
+  },
+  "name": "Aquatic",
+  "description": "You are in the aquatic mobs group, impaling deals more damage to you."
+}

@@ -1,0 +1,29 @@
+{
+	"powers": [
+		"bturtle:heart",
+		"bturtle:kelp",
+		"bturtle:landliness",
+		"bturtle:waterspeed",
+		"bturtle:beach_spawn",
+		"bturtle:outershell",
+		"bturtle:regeneration",
+		"bturtle:shell_shield",
+		"bturtle:smaller",
+		"bturtle:sneaking",
+		"bturtle:sounds",
+		"bturtle:turtle_lungs",
+		"bturtle:vegetarian",
+		"bturtle:waterboost",
+		"bturtle:wet_skin",
+		"origins:no_shield",
+		"origins:aquatic",
+		"origins:aqua_affinity",
+		"origins:water_vision",
+		"origins:like_water"
+	],
+	"icon": "minecraft:scute",
+	"order": 10,
+	"impact": 3,
+	"name": "Baby Turtle",
+	"description": "A shelled sea creature. Turtles can go onto land and usually live on the ocean."
+}

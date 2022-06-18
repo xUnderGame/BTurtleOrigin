@@ -1,0 +1,18 @@
+{
+	"type": "origins:stacking_status_effect",
+	"min_stacks": 2,
+	"max_stacks": 2,
+	"duration_per_stack": 80,
+	"effect": {
+		"effect": "minecraft:regeneration",
+		"amplifier": 0,
+		"is_ambient": true,
+		"show_particles": false,
+		"show_icon": false
+	},
+	"condition": {
+		"type": "origins:submerged_in",
+		"fluid": "minecraft:water"
+	},
+	"hidden": true
+}

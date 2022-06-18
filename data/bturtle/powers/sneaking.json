@@ -1,0 +1,13 @@
+{
+  "type": "origins:conditioned_attribute",
+  "modifier": {
+    "name": "Natural Armor health bonus",
+    "attribute": "minecraft:generic.armor",
+    "value": 3,
+    "operation": "addition"
+  },
+  "condition": {
+        "type": "origins:sneaking"
+    },
+  "hidden": true
+}

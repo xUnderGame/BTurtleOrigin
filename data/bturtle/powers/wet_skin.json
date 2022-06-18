@@ -1,0 +1,297 @@
+{
+	"type": "origins:multiple",
+	"bar": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2000,
+		"start_value": 2000,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 1,
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "bturtle:wet_skin_bar",
+						"comparison": "<",
+						"compare_to": 2000
+					},
+					{
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "bturtle:wet_skin_bar",
+								"comparison": "==",
+								"compare_to": 2000
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:fluid_height",
+										"fluid": "minecraft:water",
+										"comparison": ">",
+										"compare_to": 0.0
+									},
+									{
+										"type": "origins:in_rain"
+									},
+									{
+										"type": "origins:status_effect",
+										"effect": "minecraft:conduit_power"
+									},
+									{
+										"type": "origins:status_effect",
+										"effect": "minecraft:fire_resistance"
+									}
+								],
+								"inverted": true
+							}
+						]
+					}
+				]
+			}
+		},
+		"hidden": true
+	},
+	"bar_on_respawn": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "bturtle:wet_skin_bar",
+					"change": 2000
+				}
+			]
+		},
+		"entity_action_respawned":{
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "bturtle:wet_skin_bar",
+					"change": 2000
+				}
+			]
+		},
+		"execute_chosen_when_orb": true,
+		"hidden": true
+	},
+	"drying": {
+		"type": "origins:damage_over_time",
+		"interval": 20,
+		"onset_delay": 1,
+		"damage": 2,
+		"damage_easy": 1,
+		"damage_source": {
+		  "name": "dryout",
+		  "unblockable": true,
+		  "bypasses_armor": true
+		},
+		"protection_enchantment": "minecraft:fire_protection",
+		"protection_effectiveness": 1.0,
+		"condition": {
+		  "type": "origins:resource",
+		  "resource": "bturtle:wet_skin_bar",
+		  "compare_to": 0,
+		  "comparison": ">",
+		  "inverted": true
+		},
+		"hidden": true
+	},
+	"potions":{
+		"type": "origins:action_on_item_use",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:potion"
+			}
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "bturtle:wet_skin_bar",
+			"change": 2000
+		},
+		"hidden": true
+	},
+	"behavior":{
+		"type": "origins:action_over_time",
+	
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:fluid_height",
+								"fluid": "minecraft:water",
+								"comparison": ">",
+								"compare_to": 0.0
+							},
+							{
+								"type": "origins:in_rain"
+							},
+							{    
+								"type": "origins:status_effect",
+								"effect": "minecraft:conduit_power"
+							}
+						]
+					},
+					{
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:fluid_height",
+								"fluid": "minecraft:lava",
+								"comparison": ">",
+								"compare_to": 0.0
+							},
+							{
+								"type": "origins:on_fire"
+							}
+						],
+						"inverted": true
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "bturtle:wet_skin_bar",
+				"change": 60
+			},
+			"else_action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:status_effect",
+					"effect": "minecraft:fire_resistance",
+					"inverted": true
+				},
+				"if_action": {
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "head",
+								"item_condition": {
+									"type": "origins:enchantment",
+									"enchantment": "minecraft:fire_protection",
+									"comparison": ">",
+									"compare_to": 0
+								}
+							},
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "chest",
+								"item_condition": {
+								"type": "origins:enchantment",
+									"enchantment": "minecraft:fire_protection",
+									"comparison": ">",
+									"compare_to": 0
+								}
+							},
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "legs",
+								"item_condition": {
+									"type": "origins:enchantment",
+									"enchantment": "minecraft:fire_protection",
+									"comparison": ">",
+									"compare_to": 0
+								}
+							},
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "feet",
+								"item_condition": {
+									"type": "origins:enchantment",
+									"enchantment": "minecraft:fire_protection",
+									"comparison": ">",
+									"compare_to": 0
+								}
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "bturtle:wet_skin_bar",
+						"change": -1
+					},
+					"else_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:or",
+							"conditions": [
+								{
+									"type": "origins:fluid_height",
+									"fluid": "minecraft:lava",
+									"comparison": ">",
+									"compare_to": 0.0
+								},
+								{
+									"type": "origins:on_fire"
+								}
+							]
+						},
+						"if_action": {
+							"type": "origins:change_resource",
+							"resource": "bturtle:wet_skin_bar",
+							"change": -4
+						},
+						"else_action": {
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:exposed_to_sun"
+											},
+											{
+												"type": "origins:biome",
+												"condition": {
+													"type": "origins:temperature",
+													"compare_to": 1,
+													"comparison": ">="
+												}
+											}
+										]
+									},
+									{
+										"type": "origins:dimension",
+										"dimension": "minecraft:the_nether"
+									}
+								]
+							},
+							"if_action": {
+								"type": "origins:change_resource",
+								"resource": "bturtle:wet_skin_bar",
+								"change": -2
+							},
+							"else_action": {
+								"type": "origins:change_resource",
+								"resource": "bturtle:wet_skin_bar",
+								"change": -1
+							}
+						}
+					}
+				}
+			}
+		},
+		"interval": 1,
+		"hidden": true
+	},
+	"name": "Wet Skin",
+	"description": "Turtles need to be wet to survive, if you dont get back to water regularly you'll dry to death."
+}

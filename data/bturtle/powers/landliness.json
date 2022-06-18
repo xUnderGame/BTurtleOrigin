@@ -1,0 +1,31 @@
+{
+	"type": "origins:stacking_status_effect",
+	"min_stacks": 2,
+	"max_stacks": 2,
+	"duration_per_stack": 10,
+	"effects": [{
+			"effect": "minecraft:slowness",
+			"amplifier": 2,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		},
+		{
+			"effect": "minecraft:weakness",
+			"amplifier": 0,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		}
+	],
+	"condition": {
+		"type": "origins:fluid_height",
+		"fluid": "minecraft:water",
+		"comparison": ">",
+		"compare_to": 0.0,
+		"inverted": true
+	},
+	"name": "Landliness",
+	"description": "You are faster and gain regeneration in water but slower and weaker on land.",
+	"hidden": false
+}

@@ -1,0 +1,10 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "attribute": "minecraft:generic.armor",
+    "value": 3.0,
+    "operation": "addition"
+  },
+  "name": "Outer Shell",
+  "description": "Your back shell makes you stronger which gives you 3 armor points, when crouching you gain 3 more."
+}

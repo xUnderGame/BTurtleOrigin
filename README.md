@@ -1,7 +1,7 @@
 # The Baby Turtle
 Adds the custom Baby Turtle Origin to Minecraft.
 
-**Intended Minecraft Version**: 1.18.
+**Intended Minecraft Version**: 1.17.
 
 **Intended Origin Versions**: [Fabric](https://www.curseforge.com/minecraft/mc-mods/origins), should work on [Forge](https://www.curseforge.com/minecraft/mc-mods/origins-forge) aswell.
 

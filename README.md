@@ -1,5 +1,5 @@
 # The Baby Turtle
-Adds the custom Baby Turtle Origin to Minecraft.
+Adds the custom Baby Turtle Origin to Minecraft. This origin had as a base the Turtle Origin by a creator that I do not remember (This was made a really long time ago).
 
 **Intended Minecraft Version**: 1.17.
 
